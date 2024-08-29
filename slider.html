@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      #img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <img src="images/1.jpg" alt="" id="img" />
+    </div>
+
+    <script>
+      let images = ["1.jpg", "2.jpg", "3.png", "4.jpg", "5.jpg", "6.jpg", "7.jpg"];
+      let i = 0;
+
+      let img = document.querySelector("#img");
+      console.log(img);
+      function sliderImg() {
+        img.src = "./images/" + images[i++];
+        if (i == images.length) {
+          i = 0;
+        }
+      }
+      setInterval(sliderImg, 2000);
+    </script>
+  </body>
+</html>
