@@ -55,28 +55,39 @@
   </head>
   <body>
     <div class="slider">
-      <img src="images/7.jpg" alt="" id="img" />
-      <div class="next next-prev" id="next">
-        <i class="fa-solid fa-circle-chevron-left"></i>
-      </div>
-      <div class="prev next-prev" id="prev">
+      <img src="images/3.png" alt="" id="img" />
+      <div class="prev next-prev" id="prev" onclick="nextImg()">
         <i class="fa-solid fa-circle-chevron-right"></i>
+      </div>
+      <div class="next next-prev" id="next" onclick=" prevImg()">
+        <i class="fa-solid fa-circle-chevron-left"></i>
       </div>
     </div>
 
     <script>
-      let images = ["7.jpg", "3.png", "1.jpg", "5.jpg", "4.jpg", "2.jpg", "6.jpg"];
+      let images = ["3.png", "7.jpg", "1.jpg", "5.jpg", "4.jpg", "2.jpg", "6.jpg"];
       let img = document.querySelector("#img");
       let i = 0;
 
-      const changeImage = () => {
-        img.src = `./images/` + images[i++];
+      let next = document.querySelector("#next");
+
+      const nextImg = () => {
+        i++;
         if (i == images.length) {
           i = 0;
         }
+        img.src = `./images/` + images[i];
       };
 
-      // setInterval(changeImage, 2000);
+      const prevImg = () => {
+        i--;
+        if (i < 0) {
+          i = images.length - 1;
+        }
+        img.src = `./images/` + images[i];
+      };
+
+      setInterval(nextImg, 3000);
     </script>
   </body>
 </html>
